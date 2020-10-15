@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'w3-css/w3.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Head from "./components/header";
+import calendrier from "./components/calendrier";
+import home from './components/home'
+
+import { Route, withRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Head />
+      <Route
+        path="/home"  
+        component={home}
+      />
+      <Route
+        path="/calendrier"  
+        component={calendrier}
+      />
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
